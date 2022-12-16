@@ -1,0 +1,82 @@
+.nr{
+    width: 400px;
+    margin-left: 250px;
+    font-family: serif;
+    color: brown;
+}
+
+.recu{
+
+    font-size: 22px;
+      background-image:url("bg.jpg") ;
+    background-repeat: repeat;
+  
+ 
+}
+
+.trec{
+ margin-left: 400px;
+}
+
+.recu2{
+    font-size: 20px;
+    background-image:url("bg.jpg") ;
+  background-repeat: repeat;
+}
+
+
+.allcrois{
+  margin-left: 60px;
+  margin-top: 20px;
+}
+.croisimg{
+  width:800px;
+  height: 300px;
+  
+ }
+.croisb{
+  font-size: 40px;
+
+}
+ .croisdet{
+  margin-left: 5px;
+  font-size: 20px;
+  width: 400px;
+  
+ }
+ .croisp{
+  font-size: 25px;
+  color: blueviolet;
+ }
+ .croisbtn{
+  margin-top: 40px;
+  background-color: rgb(18, 197, 241);
+  border: none;
+  height: 40px;
+  width: 400px;
+  margin-left: 1px;
+ }
+
+ img.hover-img{
+  position: absolute;
+  opacity: 0;
+ }
+ .Box:hover img{
+  opacity:0;
+ }
+ .Box:hover img.hover-img{
+  opacity: 1;
+  margin-left: 0px;
+ }
+
+ .escales{
+  font-size: 30px;
+  margin-top: 40px;
+  margin-left: 16px;
+  }
+
+  .depart{
+    color: blue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 40px;
+  }

@@ -1,6 +1,7 @@
 
  import './Nav.css'
- import logo from './logo.png'
+ import logonav from './logonav.png'
+ import logonav2 from './logonav2.jpg'
 
 export function Nav(){
 
@@ -10,14 +11,19 @@ export function Nav(){
    <div class="" >
 
       <div class="navbar-nav">
- 
-        <a class="nav-item ev " href="/home"><b>Home</b>  </a>
+
+        <a class="nav-item ev " href="/home"><b>HOME</b>  </a>
         <a class="nav-item ev " href="/Vols"><b>VOLS</b> </a>
+
         <a class="nav-item ev  " href="/hotels"><b>HOTELS</b> </a>
-        <a class="nav-item  ev " href="Croisieres"><b>CROISIERES</b></a>
-   <a class="nav-item  ev plus" href="/visited"><b>LES PLUS VISITE</b></a>
-        
-       <div className='log'>  <a class="loga" href="/Login">Deconnexion </a> </div>
+        <img src={logonav} height="45px" width="300px" className='imnav'/>
+
+        <a class="nav-item  ev "  exact={true} href="/Croisieres"><b>CROISIERES</b></a>
+        <a class="nav-item  ev "  exact={true} href="/weather"><b>METEO</b></a>
+
+        <a class="nav-item  ev "  exact={true} href="/Analyse"><b>FEEDBACK</b></a>
+
+       <div className='log'>  <a class="loga" href="/">Deconnexion </a> </div>
        </div>
       <br></br>
 

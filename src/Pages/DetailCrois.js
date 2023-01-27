@@ -8,8 +8,9 @@ export function DetailCrois(){
     const{depart,date,escale1,escale2,escale3,escale4,escale5,escale6,prix}=useParams()
 
     return <body>
-            <Accueil/>
-<div className="recu2">
+            
+<div className="bn">
+<Accueil/>
 <br></br>
 
 <h1 className="depart">  {depart}</h1>

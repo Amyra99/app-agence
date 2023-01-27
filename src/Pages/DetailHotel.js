@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Accueil } from "./Accueil";
 import Axios from 'axios'
 import { useEffect } from "react";
@@ -5,6 +7,11 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import './Nav.css'
 import userimg from './user.png'
+import vocal from './vocal.png'
+import valide from './valide.png'
+import invalid from './invalid.png'
+
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 
 export function DetailHotel(){
@@ -18,6 +25,11 @@ export function DetailHotel(){
     const [user,setuser]=useState('')
     const [note,setnote]=useState(0)
     const [msg,setmsg]=useState('')
+
+   
+
+
+
 
     const addtolist=()=>{
         console.log(user + msg)
@@ -38,21 +50,47 @@ export function DetailHotel(){
             setcomments(response.data)
         })
     },[])
+ 
+    const commands= [
+      
+    ]
+    
+    
+    const { transcript,listening,  resetTranscript, browserSupportsSpeechRecognition} = useSpeechRecognition({commands})
 
 
+   
+
+    
+      if (!browserSupportsSpeechRecognition) {
+        return <span>Browser doesn't support speech recognition.</span>;
+      }
+
+   
 
      return <html> 
       <body >
 
 <div class="bn">
 <Accueil/>
-
+ 
  <br></br>
-<div class="star" ><h3>{star.slice(5-stars)} </h3>    </div>
-<h1>{nom}</h1>
-<h4>localisation : {region}</h4>
+<div class="star" >
+  <table><tr ><td><h3>{star.slice(5-stars)} </h3> </td>
 
-<br></br> <br></br> <br></br><br></br> 
+<td ><h1 className='hvocal'>{nom} 
+</h1>
+<h4 className='hvocal'>localisation : {region}</h4></td>
+
+  <td ><img src={vocal} width="180px" height="180px" className='vocal'/></td>
+  </tr></table>  
+  <br></br>
+   </div> 
+
+
+<br></br> <br></br> <br></br><br></br>   <br></br>  <br></br>
+
+
 <div>
     
 {comments.filter((item)=>{
@@ -82,14 +120,29 @@ return <div >
 })}
  <div class="space" >
     <input type="text" className="yn" placeholder="username" onChange={(event)=>{setuser(event.target.value)}}/>
-    <input placeholder="Ton Commentaire ....."type="text" className="yc"onChange={(event)=>{setmsg(event.target.value)}}/>
+   
+     <input 
+    placeholder="Ton Commentaire ....."type="text" className="yc"
+    value={transcript}
+      />
+  
  <input type="number" placeholder="Note / 5" className="yn" onChange={(event)=>{setnote(event.target.value)}}/>
-<button class="yn " onClick={addtolist}>Comment</button>
- 
+<img src={valide}    onClick={()=>{setmsg(transcript)}}width="80px" height="80px"/>
+<img src={invalid}   onClick={resetTranscript} width="80px" height="80px"/>
+
+<button class="yn " onClick={addtolist}  >Commenter</button>
+
+
+
+<spam onClick={SpeechRecognition.startListening({continuous:'true' ,language:"fr"})}/>
+        
+
+
  </div>
 
  </div>
  </div>
 
-    </body></html>
+    </body></html>  
+
 }

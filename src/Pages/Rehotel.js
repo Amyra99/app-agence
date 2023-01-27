@@ -6,8 +6,9 @@ export function Rehotel(){
     const{Nom,prenom,name,numero,de,a,nombre,Chambre,prix}=useParams();
  var montant=prix*nombre
      return<body>
+                <Accueil/>
+
         <div className="">
-        <Accueil/>
 
 <div className="recu">
     <br></br> 

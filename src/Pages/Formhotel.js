@@ -44,6 +44,7 @@ export function Formhotel(){
 
 
 </table>
+<form action={`/Reservation/${Nom}/${prenom}/${name}/${numero}/${de}/${a}/${nombre}/${Chambre}/${prix}`}>
 <div class="form-group wid">
     <label >Prenom :</label>
     <input type="text" required class="form-control bl"  onChange={(event)=>{setprenom(event.target.value)}} /> <br></br>
@@ -68,15 +69,13 @@ jusqu'à :<input type="date" required className="form-control bl"onChange={(even
 
      </select>
 <br></br>
-<button className="br"><Link class="cl" 
-to={`/Reservation/${Nom}/${prenom}/${name}/${numero}/${de}/${a}/${nombre}/${Chambre}/${prix}`}
-
->
-         Réserver 
-          </Link></button>
+<button className="br">
+         Réserver </button>
+           
 
 
   </div>
+  </form>
   </div>
     </body>
 }

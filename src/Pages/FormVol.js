@@ -3,6 +3,8 @@ import { Accueil } from "./Accueil";
 import { Link } from "react-router-dom";
 import { ReVol } from "./ReVol";
 import { useState } from "react";
+import Axios from 'axios'
+
 import './Nav.css'
 export function FormVol(){
     const{de,a,ref}=useParams()
@@ -11,13 +13,29 @@ export function FormVol(){
 
     const [prenom,setprenom]=useState('--')
     const [name,setnom]=useState('--')
-    const [numero,setnumero]=useState('--')
+    const [Numero,setNumero]=useState('--')
     const [classe,setclasse]=useState('économique')
     const [nombre,setnombre]=useState(1)
- 
+    const [email,setemail]=useState('--')
+
+
+
+    const ReserverVol=()=>{
+       Axios.post("http://localhost:3001/insertvol",{
+          prenom:prenom,
+          nom:name,
+          Numero:Numero,
+          Email:email
+          
+      })
+   }
+
+
+
+
 
     return <body>
-<form class="bn">
+<form action={`/recu/${ref}/${prenom}/${name}/${Numero}/${classe}`} class="bn">
 <Accueil/> 
 
 <br></br>
@@ -29,9 +47,9 @@ export function FormVol(){
     <label >Nom :</label>
     <input type="text" required class="form-control bl"  onChange={(event)=>{setnom(event.target.value)}} /><br></br>
     <label >Numero :</label>
-    <input type="text" required class="form-control bl" onChange={(event)=>{setnumero(event.target.value)}} /><br></br>
+    <input type="text" required class="form-control bl" onChange={(event)=>{setNumero(event.target.value)}} /><br></br>
     <label >Email :</label>
-    <input type="email" required class="form-control bl" /><br></br>
+    <input type="email" required class="form-control bl" onChange={(event)=>{setemail(event.target.value)}} /><br></br>
 
   </div>
   <div class="form-group wid">
@@ -46,9 +64,8 @@ export function FormVol(){
     <br></br><br></br>
 
  
- <button className="br ">
-    <Link class=" cl"to={`/recu/${ref}/${prenom}/${name}/${numero}/${classe}`} >
-         Réserver </Link></button>
+ <button className="br" onClick={ReserverVol}>
+          Réserver  </button>
   </div>
  
   </form>

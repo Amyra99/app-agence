@@ -32,7 +32,7 @@ console.log(search)
 },[])
 
 
-    return <body><div className="bn">
+    return <body><div className="">
         <Accueil/> <br></br>
  <h1>Vols</h1>
 <div class="dv">

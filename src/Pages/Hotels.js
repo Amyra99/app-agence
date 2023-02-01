@@ -18,7 +18,7 @@ console.log(budget)
         })
     },[])
     return<body >
-<div class="bn">
+<div class="">
 <Accueil/> 
 
   <br></br>

@@ -71,7 +71,7 @@ export function DetailHotel(){
      return <html> 
       <body >
 
-<div class="bn">
+<div class="">
 <Accueil/>
  
  <br></br>
